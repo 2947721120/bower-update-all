@@ -1,0 +1,25 @@
+{
+  "name": "bower-update-all",
+  "version": "0.1.0",
+  "description": "Update all of your Bower dependencies in one single command",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bower",
+    "update",
+    "all",
+    "dependencies"
+  ],
+  "author": "Bruno Cartier",
+  "license": "Fair",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ActivKonnect/bower-update-all.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ActivKonnect/bower-update-all/issues"
+  },
+  "homepage": "https://github.com/ActivKonnect/bower-update-all#readme"
+}
