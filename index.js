@@ -23,7 +23,7 @@
             dependencies = [];
 
         updateDependency = function (dep, cb) {
-            var command = 'bower install ' + dep.name + ' --save';
+            var command = 'bower install ' + dep.name + ' --force-latest --save';
 
             if (dep.dev) {
                 command += '-dev';

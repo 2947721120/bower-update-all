@@ -1,6 +1,6 @@
 {
   "name": "bower-update-all",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Update all of your Bower dependencies in one single command",
   "main": "index.js",
   "preferGlobal": "true",
