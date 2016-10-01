@@ -23,7 +23,21 @@
             dependencies = [];
 
         updateDependency = function (dep, cb) {
-            var command = 'bower install ' + dep.name + ' --force-latest --save';
+            var name = dep.name;
+            if (dep.name.constructor === Object && dep.name.name !== undefined) {
+                var version = dep.name.version;
+                if (version.indexOf('#') > -1){
+                    if (version.indexOf('#master') > -1){
+                        name = version;
+                    } else {
+                        name = version.split('#')[0];
+                    }
+                }
+            }
+            if (typeof name != "string") {
+                name = name.name;
+            }
+            var command = 'bower install "' + name + '" --force-latest --save';
 
             if (dep.dev) {
                 command += '-dev';
@@ -31,9 +45,9 @@
 
             exec(command, function (err) {
                 if (err) {
-                    console.log('✘ Error updating ' + dep.name + ' - ' + err);
+                    console.log('✘ Error updating ' + name + ' - ' + err);
                 } else {
-                    console.log('✔ ' + dep.name);
+                    console.log('✔ ' + name);
                 }
 
                 cb();
@@ -78,6 +92,7 @@
         if (bowerJson.dependencies) {
             Object
                 .keys(bowerJson.dependencies)
+                .map(function (key) { return {"name": key,"version":bowerJson.dependencies[key]}; })
                 .forEach(function (dep) {
                     updater.addDependency(dep);
                 });
